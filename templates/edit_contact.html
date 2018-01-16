@@ -1,0 +1,15 @@
+<!DOCTYPE html5>
+<html>
+<form method="POST" action="/contacts/update_contact/{{row[0]}}">
+  First name:<br>
+  <input type="text" name="FIRST_NAME" value="{{row[1]}}"><br>
+  Middle name:<br>
+  <input type="text" name="MIDDLE_NAME" value="{{row[2] |default('', True)}}"><br>
+  Last name:<br>
+  <input type="text" name="LAST_NAME" value="{{row[3]}}">
+  Birthday:<br>
+  <input type="date" name="BIRTHDAY" value="{{row[4]}}">
+  <input type="submit" value="Submit">
+  <input type="reset">
+</form>
+</html>

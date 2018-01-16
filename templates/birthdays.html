@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %} Birthdays {% endblock %}
+{% block content %} 
+<h2> Today is {{current_date}} </h2> 
+
+{% if birthdays_today|length > 0 %}
+    <h3 align="left"> You have {{ birthdays_today|length }} birthdays today: </h3>
+    <table class="leftGreyGridTable">
+    <thead>
+    <tr> 
+        <th>First Name</th>
+        <th>Middle Name</th>
+        <th>Last Name</th>
+    </tr>
+    </thead>
+
+    {% for item in birthdays_today %}
+    <tr>
+        <td>{{item[1]}}</td>
+        <td>{{item[2] | default('', True)}}</td>
+        <td>{{item[3]}}</td>
+    </tr>
+    {% endfor %}
+    </table>
+{% else %}    
+    <h3 align="left"> You have no birthday today. </h3>
+{% endif %}
+  
+{% if birthdays_next_week|length > 0 %}
+    <h3 align="left"> You have {{ birthdays_next_week|length }} birthdays next week: </h3>
+    <table class="leftGreyGridTable">
+    <thead>
+    <tr> 
+        <th>First Name</th>
+        <th>Middle Name</th>
+        <th>Last Name</th>
+        <th>Birthday</th>
+    </tr>
+    </thead>
+
+    {% for item in birthdays_next_week %}
+    <tr>
+        <td>{{item[1]}}</td>
+        <td>{{item[2] | default('', True)}}</td>
+        <td>{{item[3]}}</td>
+        <td>{{item[4]}}</td>
+    </tr>
+    {% endfor %}
+    </table>
+{% else %}    
+    <h3 align="left"> You have no birthday next week. </h3>
+{% endif %}
+
+{% endblock %}
+
+

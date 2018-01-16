@@ -1,0 +1,187 @@
+CREATE TABLE contacts (
+    ID INTEGER PRIMARY KEY AUTOINCREMENT,
+    FIRST_NAME VARCHAR(126),
+    MIDDLE_NAME VARCHAR(126) NULL,
+    LAST_NAME VARCHAR(126),
+    BIRTHDAY DATE
+    );
+
+CREATE TABLE saints(
+    ID INTEGER PRIMARY KEY AUTOINCREMENT,
+    HOLIDAY_NAME VARCHAR(126),
+    NAME VARCHAR(126),
+    DAY
+    MONTH
+    );
+    
+CREATE TABLE nameday(
+    ID INTEGER PRIMARY KEY AUTOINCREMENT,
+    NAME VARCHAR(126),
+    SAINT_ID INTEGER
+    );
+
+CREATE TABLE contacts_info(
+    ID INTEGER PRIMARY KEY AUTOINCREMENT,
+    CONTACT_ID VARCHAR(126),
+    TYPE VARCHAR(126),
+    ADDRESS VARCHAR(126) NULL,
+    PHONE VARCHAR(126) NULL,
+    COMPANY VARCHAR(126) NULL
+    );
+    
+DROP TABLE saints;
+
+CREATE TABLE saints(
+    ID INTEGER PRIMARY KEY AUTOINCREMENT,
+    HOLIDAY_NAME VARCHAR(126),
+    DAY INTEGER,
+    MONTH INTEGER
+    );
+    
+INSERT INTO saints (HOLIDAY_NAME, DAY, MONTH)
+VALUES ('St. Basil', 1, 1);
+INSERT INTO saints (HOLIDAY_NAME, DAY, MONTH)
+VALUES ('St. John', 23, 4);
+
+UPDATE saints
+SET DAY = 7, MONTH = 1
+WHERE id = 2;
+
+INSERT INTO saints (HOLIDAY_NAME, DAY, MONTH)
+VALUES ('St. George', 23, 4);
+INSERT INTO saints (HOLIDAY_NAME, DAY, MONTH)
+VALUES ('St. Constantine and Helen', 21, 5);
+INSERT INTO saints (HOLIDAY_NAME, DAY, MONTH)
+VALUES ('St. Peter and Paul', 29, 6);
+INSERT INTO saints (HOLIDAY_NAME, DAY, MONTH)
+VALUES ('St. Elias', 20, 7);
+INSERT INTO saints (HOLIDAY_NAME, DAY, MONTH)
+VALUES ('St. Mary', 8, 9);
+INSERT INTO saints (HOLIDAY_NAME, DAY, MONTH)
+VALUES ('St. Ann', 9, 9);
+INSERT INTO saints (HOLIDAY_NAME, DAY, MONTH)
+VALUES ('St. Paraskeva', 14, 10);
+INSERT INTO saints (HOLIDAY_NAME, DAY, MONTH)
+VALUES ('St. Demetrios', 26, 10);
+INSERT INTO saints (HOLIDAY_NAME, DAY, MONTH)
+VALUES ('St. Michael and Gabriel', 8, 11);
+INSERT INTO saints (HOLIDAY_NAME, DAY, MONTH)
+VALUES ('St. Catherine', 25, 11);
+INSERT INTO saints (HOLIDAY_NAME, DAY, MONTH)
+VALUES ('St. Andrew', 30, 11);
+INSERT INTO saints (HOLIDAY_NAME, DAY, MONTH)
+VALUES ('St. Nicholas', 6, 12);
+INSERT INTO saints (HOLIDAY_NAME, DAY, MONTH)
+VALUES ('St. Stephen', 27, 12);
+
+INSERT INTO nameday (NAME, SAINT_ID)
+VALUES ('Vasile', (SELECT ID FROM saints WHERE HOLIDAY_NAME = 'St. Basil'));
+INSERT INTO nameday (NAME, SAINT_ID)
+VALUES ('Vasilica', (SELECT ID FROM saints WHERE HOLIDAY_NAME = 'St. Basil'));
+INSERT INTO nameday (NAME, SAINT_ID)
+VALUES ('Ion', (SELECT ID FROM saints WHERE HOLIDAY_NAME = 'St. John'));
+INSERT INTO nameday (NAME, SAINT_ID)
+VALUES ('Ioan', (SELECT ID FROM saints WHERE HOLIDAY_NAME = 'St. John'));
+INSERT INTO nameday (NAME, SAINT_ID)
+VALUES ('Ionut', (SELECT ID FROM saints WHERE HOLIDAY_NAME = 'St. John'));
+INSERT INTO nameday (NAME, SAINT_ID)
+VALUES ('Ioana', (SELECT ID FROM saints WHERE HOLIDAY_NAME = 'St. John'));
+INSERT INTO nameday (NAME, SAINT_ID)
+VALUES ('Oana', (SELECT ID FROM saints WHERE HOLIDAY_NAME = 'St. John'));
+INSERT INTO nameday (NAME, SAINT_ID)
+VALUES ('Constantin', (SELECT ID FROM saints WHERE HOLIDAY_NAME = 'St. Constantine and Helen'));
+INSERT INTO nameday (NAME, SAINT_ID)
+VALUES ('Costel', (SELECT ID FROM saints WHERE HOLIDAY_NAME = 'St. Constantine and Helen'));
+INSERT INTO nameday (NAME, SAINT_ID)
+VALUES ('Costica', (SELECT ID FROM saints WHERE HOLIDAY_NAME = 'St. Constantine and Helen'));
+INSERT INTO nameday (NAME, SAINT_ID)
+VALUES ('Elena', (SELECT ID FROM saints WHERE HOLIDAY_NAME = 'St. Constantine and Helen'));
+INSERT INTO nameday (NAME, SAINT_ID)
+VALUES ('Lenuta', (SELECT ID FROM saints WHERE HOLIDAY_NAME = 'St. Constantine and Helen'));
+INSERT INTO nameday (NAME, SAINT_ID)
+VALUES ('Ileana', (SELECT ID FROM saints WHERE HOLIDAY_NAME = 'St. Constantine and Helen'));
+INSERT INTO nameday (NAME, SAINT_ID)
+VALUES ('Petru', (SELECT ID FROM saints WHERE HOLIDAY_NAME = 'St. Peter and Paul'));
+INSERT INTO nameday (NAME, SAINT_ID)
+VALUES ('Pavel', (SELECT ID FROM saints WHERE HOLIDAY_NAME = 'St. Peter and Paul'));
+INSERT INTO nameday (NAME, SAINT_ID)
+VALUES ('Paul', (SELECT ID FROM saints WHERE HOLIDAY_NAME = 'St. Peter and Paul'));
+INSERT INTO nameday (NAME, SAINT_ID)
+VALUES ('Paula', (SELECT ID FROM saints WHERE HOLIDAY_NAME = 'St. Peter and Paul'));
+INSERT INTO nameday (NAME, SAINT_ID)
+VALUES ('Paulina', (SELECT ID FROM saints WHERE HOLIDAY_NAME = 'St. Peter and Paul'));
+INSERT INTO nameday (NAME, SAINT_ID)
+VALUES ('Ilie', (SELECT ID FROM saints WHERE HOLIDAY_NAME = 'St. Elias'));
+INSERT INTO nameday (NAME, SAINT_ID)
+VALUES ('Maria', (SELECT ID FROM saints WHERE HOLIDAY_NAME = 'St. Mary'));
+INSERT INTO nameday (NAME, SAINT_ID)
+VALUES ('Marioara', (SELECT ID FROM saints WHERE HOLIDAY_NAME = 'St. Mary'));
+INSERT INTO nameday (NAME, SAINT_ID)
+VALUES ('Marina', (SELECT ID FROM saints WHERE HOLIDAY_NAME = 'St. Mary'));
+INSERT INTO nameday (NAME, SAINT_ID)
+VALUES ('Marin', (SELECT ID FROM saints WHERE HOLIDAY_NAME = 'St. Mary'));
+INSERT INTO nameday (NAME, SAINT_ID)
+VALUES ('Marian', (SELECT ID FROM saints WHERE HOLIDAY_NAME = 'St. Mary'));
+INSERT INTO nameday (NAME, SAINT_ID)
+VALUES ('Ana', (SELECT ID FROM saints WHERE HOLIDAY_NAME = 'St. Ann'));
+INSERT INTO nameday (NAME, SAINT_ID)
+VALUES ('Anisoara', (SELECT ID FROM saints WHERE HOLIDAY_NAME = 'St. Ann'));
+INSERT INTO nameday (NAME, SAINT_ID)
+VALUES ('Parascheva', (SELECT ID FROM saints WHERE HOLIDAY_NAME = 'St. Paraskeva'));
+INSERT INTO nameday (NAME, SAINT_ID)
+VALUES ('Dumitru', (SELECT ID FROM saints WHERE HOLIDAY_NAME = 'St. Demetrios'));
+INSERT INTO nameday (NAME, SAINT_ID)
+VALUES ('Dumitrita', (SELECT ID FROM saints WHERE HOLIDAY_NAME = 'St. Demetrios'));
+INSERT INTO nameday (NAME, SAINT_ID)
+VALUES ('Mihai', (SELECT ID FROM saints WHERE HOLIDAY_NAME = 'St. Michael and Gabriel'));
+INSERT INTO nameday (NAME, SAINT_ID)
+VALUES ('Gabriel', (SELECT ID FROM saints WHERE HOLIDAY_NAME = 'St. Michael and Gabriel'));
+INSERT INTO nameday (NAME, SAINT_ID)
+VALUES ('Gabriela', (SELECT ID FROM saints WHERE HOLIDAY_NAME = 'St. Michael and Gabriel'));
+INSERT INTO nameday (NAME, SAINT_ID)
+VALUES ('Gabi', (SELECT ID FROM saints WHERE HOLIDAY_NAME = 'St. Michael and Gabriel'));
+INSERT INTO nameday (NAME, SAINT_ID)
+VALUES ('Mihaela', (SELECT ID FROM saints WHERE HOLIDAY_NAME = 'St. Michael and Gabriel'));
+INSERT INTO nameday (NAME, SAINT_ID)
+VALUES ('Caterina', (SELECT ID FROM saints WHERE HOLIDAY_NAME = 'St. Catherine'));
+INSERT INTO nameday (NAME, SAINT_ID)
+VALUES ('Ecaterina', (SELECT ID FROM saints WHERE HOLIDAY_NAME = 'St. Catherine'));
+INSERT INTO nameday (NAME, SAINT_ID)
+VALUES ('Andrei', (SELECT ID FROM saints WHERE HOLIDAY_NAME = 'St. Andrew'));
+INSERT INTO nameday (NAME, SAINT_ID)
+VALUES ('Andreea', (SELECT ID FROM saints WHERE HOLIDAY_NAME = 'St. Andrew'));
+INSERT INTO nameday (NAME, SAINT_ID)
+VALUES ('Ilie', (SELECT ID FROM saints WHERE HOLIDAY_NAME = 'St. Andrew'));
+INSERT INTO nameday (NAME, SAINT_ID)
+VALUES ('Nicolae', (SELECT ID FROM saints WHERE HOLIDAY_NAME = 'St. Nicholas'));
+INSERT INTO nameday (NAME, SAINT_ID)
+VALUES ('Nicu', (SELECT ID FROM saints WHERE HOLIDAY_NAME = 'St. Nicholas'));
+INSERT INTO nameday (NAME, SAINT_ID)
+VALUES ('Stefan', (SELECT ID FROM saints WHERE HOLIDAY_NAME = 'St. Stephen'));
+INSERT INTO nameday (NAME, SAINT_ID)
+VALUES ('Stefana', (SELECT ID FROM saints WHERE HOLIDAY_NAME = 'St. Stephen'));
+INSERT INTO nameday (NAME, SAINT_ID)
+VALUES ('Stefania', (SELECT ID FROM saints WHERE HOLIDAY_NAME = 'St. Stephen'));
+
+INSERT INTO contacts (FIRST_NAME, LAST_NAME, BIRTHDAY)
+VALUES ('Elena', 'Popovici', '1980-02-12');
+INSERT INTO contacts (FIRST_NAME, LAST_NAME, BIRTHDAY)
+VALUES ('Anca', 'Avram', '1990-12-10');
+INSERT INTO contacts (FIRST_NAME, MIDDLE_NAME, LAST_NAME, BIRTHDAY)
+VALUES ('Adrian', 'Constantin', 'Stanciu', '1983-05-22');
+INSERT INTO contacts (FIRST_NAME, LAST_NAME, BIRTHDAY)
+VALUES ('Ion', 'Rotaru', '1970-11-05');
+INSERT INTO contacts (FIRST_NAME, MIDDLE_NAME, LAST_NAME, BIRTHDAY)
+VALUES ('Madalina', 'Maria', 'Antohi', '1993-09-24');
+INSERT INTO contacts (FIRST_NAME, LAST_NAME, BIRTHDAY)
+VALUES ('Tudor', 'Crivoi', '1990-12-10');
+INSERT INTO contacts (FIRST_NAME, LAST_NAME, BIRTHDAY)
+VALUES ('Dorina', 'Popovici', '1980-02-12');
+INSERT INTO contacts (FIRST_NAME, MIDDLE_NAME, LAST_NAME, BIRTHDAY)
+VALUES ('Carmen', 'Elena', 'Enache', '1985-07-31');
+INSERT INTO contacts (FIRST_NAME, MIDDLE_NAME, LAST_NAME, BIRTHDAY)
+VALUES ('Ioana', 'Elena', 'Dumitriu', '2018-01-12');
+INSERT INTO contacts (FIRST_NAME, MIDDLE_NAME, LAST_NAME, BIRTHDAY)
+VALUES ('Corina', 'Ana', 'Popa', '2000-09-30');
+INSERT INTO contacts (FIRST_NAME, MIDDLE_NAME, LAST_NAME, BIRTHDAY)
+VALUES ('Cornel', 'Vasile', 'Rusu', '2000-10-01');
