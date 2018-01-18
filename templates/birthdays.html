@@ -16,9 +16,9 @@
 
     {% for item in birthdays_today %}
     <tr>
-        <td>{{item[1]}}</td>
-        <td>{{item[2] | default('', True)}}</td>
-        <td>{{item[3]}}</td>
+        <td>{{item.first_name}}</td>
+        <td>{{item.middle_name | default('', True)}}</td>
+        <td>{{item.last_name}}</td>
     </tr>
     {% endfor %}
     </table>
@@ -40,10 +40,10 @@
 
     {% for item in birthdays_next_week %}
     <tr>
-        <td>{{item[1]}}</td>
-        <td>{{item[2] | default('', True)}}</td>
-        <td>{{item[3]}}</td>
-        <td>{{item[4]}}</td>
+        <td>{{item.first_name}}</td>
+        <td>{{item.middle_name | default('', True)}}</td>
+        <td>{{item.last_name}}</td>
+        <td>{{item.birthday}}</td>
     </tr>
     {% endfor %}
     </table>

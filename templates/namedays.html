@@ -18,9 +18,9 @@
 
     {% for item in namedays_today %}
     <tr>
-        <td>{{item[1]}}</td>
-        <td>{{item[2] | default('', True)}}</td>
-        <td>{{item[3]}}</td>
+        <td>{{item.first_name}}</td>
+        <td>{{item.middle_name | default('', True)}}</td>
+        <td>{{item.last_name}}</td>
     </tr>
     {% endfor %}
     </table>
@@ -29,8 +29,18 @@
     <h4 align="left"> You have no nameday today. </h4>
 {% endif %}
 
+{% if saints_next_month|length > 0%}
+<h3 align="left"> Next month Saints are:</h3>
+    <ul>
+    {% for saint in saints_next_month %}
+    <li> {{saint.holiday_name}} is on {{saint.month}}-{{saint.day}} </li>
+    {% endfor %}
+    </ul>
+{% else %}   
+    <h3 align="left"> There are no saints days next month. </h3>    
+{% endif %} 
+
 {% if namedays_next_month|length > 0 %}
-    <h3 align="left"> Next month Saints are: {{saints_next_month|join(', ')}}.</h3>
     <h4 align="left"> You have {{namedays_next_month|length }} namedays next month: </h4>
     <table class="leftGreyGridTable">
     <thead>
@@ -43,14 +53,13 @@
     
     {% for item in namedays_next_month %}
     <tr>
-        <td>{{item[1]}}</td>
-        <td>{{item[2] | default('', True)}}</td>
-        <td>{{item[3]}}</td>
+        <td>{{item.first_name}}</td>
+        <td>{{item.middle_name | default('', True)}}</td>
+        <td>{{item.last_name}}</td>
     </tr>
     {% endfor %}
     </table>
 {% else %}
-    <h3 align="left"> There are no saints days next month. </h3>    
     <h4 align="left"> You have no nameday next month. </h4>
 {% endif %}
 

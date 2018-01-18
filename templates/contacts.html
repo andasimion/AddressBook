@@ -14,12 +14,12 @@
 
 {% for item in all_rows %}
 <tr>
-    <td>{{item[1]}}</td>
-    <td>{{item[2] | default('', True)}}</td>
-    <td>{{item[3]}}</td>
-    <td>{{item[4]}}</td>
-    <td><a href = '/contacts/edit_contact/{{item[0]}}' target="_blank"><img src="/static/edit_contact.png" title="Edit contact"></img></a></td>
-    <td><a href = '/contacts/delete_contact/{{item[0]}}'><img src="/static/delete_contact.png" title="Delete contact"></img> </a></td>
+    <td>{{item.first_name}}</td>
+    <td>{{item.middle_name | default('', True)}}</td>
+    <td>{{item.last_name}}</td>
+    <td>{{item.birthday}}</td>
+    <td><a href = '/contacts/edit_contact/{{item.id}}' target="_blank"><img src="/static/edit_contact.png" title="Edit contact"></img></a></td>
+    <td><a href = '/contacts/delete_contact/{{item.id}}'><img src="/static/delete_contact.png" title="Delete contact"></img> </a></td>
 </tr>
 
 {% endfor %}
